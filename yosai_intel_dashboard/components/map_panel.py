@@ -1,6 +1,5 @@
 import dash_leaflet as dl
-import dash_leaflet.express as dlx
-from dash_leaflet import Marker, TileLayer, Tooltip, Popup, ScaleControl, ZoomControl
+from dash_leaflet import Marker, TileLayer, Tooltip, Popup, ScaleControl, ZoomControl, Icon
 from dash import html, dcc, Output, Input, callback_context
 
 # Predefined map centers for each view
@@ -26,7 +25,7 @@ layout = html.Div([
         zoom=15,
         children=[
             TileLayer(url=tile_url, attribution=attribution),
-            Marker(position=view_centers['site'], icon=dict(
+            Marker(position=view_centers['site'], icon=Icon(
                 iconUrl="/assets/main_icon_site.png",
                 iconSize=[32, 32],
                 iconAnchor=[16, 32],
